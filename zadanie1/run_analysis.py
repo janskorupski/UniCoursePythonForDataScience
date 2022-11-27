@@ -1,10 +1,10 @@
-from iris_analysis.inout.load import load
-from iris_analysis.inout.save import save
+from iris_analysis.io.load import load
+from iris_analysis.io.save import save
 from iris_analysis.calculate import *
 
 if __name__ == "__main__":
     DATADIR = "iris.csv"
-    
+
     data = load( DATADIR )
 
     stats = []

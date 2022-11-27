@@ -22,7 +22,7 @@ def medians(mtx):
 
 
 if __name__ == "__main__":
-    import iris_analysis.inout.load as ld
+    import iris_analysis.io.load as ld
 
     data = ld.load("../iris.csv")
     print(transpose(data))
