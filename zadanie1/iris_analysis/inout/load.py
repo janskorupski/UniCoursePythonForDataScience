@@ -1,4 +1,4 @@
-from csv import reader # that's literally worthless, this can be rewritten without this dependency
+#from csv import reader # that's literally worthless, this can be rewritten without this dependency
 
 
 def load(filedir,sep = ","):
@@ -11,18 +11,23 @@ def load(filedir,sep = ","):
             row = line.replace("\n","").split( sep )
 
             # converting to numeric values, where possible
-            for i in len(row):
-                row[i] = row[i].replace("'",'"')
+            for i in range(len(row)):
+                row[i] = row[i].replace("'", '"')
                 if '"' in row[i]:
-                    row[i] = row[i].replace('"',"")
+                    row[i] = row[i].replace('"', "")
                 elif row[i].isdecimal():
                     row[i] = int( row[i] )
-                elif row[i].isnumeric():
+                elif row[i].replace(".", "").isnumeric():
                     row[i] = float( row[i] )
 
             mtx.append(row)
     return mtx
 
+if __name__ == "__main__":
+    data = load( "C:/Users/PC/Documents/NarzedziaPython/wtf/zadanie1/iris.csv" , )
+    for row in data:
+        print(row)
+    print( data[1][1] + data[2][3] )
 
 # the code below uses the 'csv' package, but is stupid and will not be used
 """
